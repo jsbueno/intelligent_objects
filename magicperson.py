@@ -51,7 +51,7 @@ class MagicPerson(object):
         if age is not None:
             self.age = age
         if address  is not None:
-            self.address = None
+            self.address = address
             
     
 
