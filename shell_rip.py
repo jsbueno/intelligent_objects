@@ -12,10 +12,11 @@ s = ExecImediate()
 class ExecDelayed(object):
     def __getattr__(self, command):
         def call(*args):
-            return os.popen("%s %s" % 
-                                (command,
-                                 " ".join(args)
-                                )
-                            ).read()
+            return os.popen(
+                "%s %s" % (
+                    command,
+                    " ".join(args)
+                )
+            ).read()
         return call
 sh = ExecDelayed()

@@ -21,7 +21,7 @@ class MagicAttribute(object):
             instance._data = pickle.load(open(self.get_filename(instance), "rb"))
         except (IOError, EOFError):
             instance._data = {}
-    
+
     def write(self, instance):
         with open(self.get_filename(instance), "wb") as data_file:
             pickle.dump(instance._data, data_file, 2)
@@ -33,7 +33,7 @@ class MagicAttribute(object):
             return instance._data[self.name]
         except KeyError:
             raise AttributeError
-    
+
     def __set__(self, instance, value):
         if not hasattr(instance, "_data"):
             self.load(instance)
